@@ -4,63 +4,152 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    <form method="post"   enctype="multipart/form-data">
+    
+<header>
+        <nav>
+
+            <a href="index.php">Home</a>
+            <a href="politika.php">Politika</a>
+            <a href="nekretnine.php">Nekretnine</a>
+            <a href="unos.php">Administracija</a>
+        </nav>
+    </header>
+
+    <form method="post" enctype="multipart/form-data" id="myForm">
+        <p id="porukaTitle"></p>
         <label for="naslov">Naslov vijesti:</label>
         <br>
-        <input type="text" name="naslov">
+        <input type="text" name="naslov" id="title">
         <br>
-        <label for="kratak" >Kratak sadržaj vijesti (do 50 znakova):</label>
+        <label for="kratak">Kratak sadržaj vijesti (do 50 znakova):</label>
         <br>
-        <textarea name="kratak" id="" maxlength="50"></textarea>
+        <p id="porukaSadrzaj"></p>
+        <textarea name="kratak" id="shContext" maxlength="50"></textarea>
         <br>
         <label for="sadrzaj">Sadrzaj vijesti:</label>
         <br>
-        <textarea name="sadrzaj" id=""></textarea>
+        <p id="porukaTekst"></p>
+        <textarea name="sadrzaj" id="tekst"></textarea>
         <br>
-        
-        <input type="file" name="slika"  >
+        <p id="porukaSlika"></p>
+        <input type="file" name="slika" id="photo">
         <br>
         <label for="kategorija">Kategorija vijesti</label>
         <br>
-        <input type="text" name="kategorija">
+        <p id="porukaKategorija"></p>
+        <input type="text" name="kategorija" id="kategorija">
         <br>
         <label for="arhiva">Spremiti u arhivu:</label>
         <br>
-        <input type="checkbox">
+        
+        <input type="checkbox" name="arhiva" id="arhiva">
         <br>
-        <button>Poništi</button>
-        <input type="submit" 
-                  name="submit"
-                  value="Upload">
+        <button type="button" onclick="resetForm()">Poništi</button>
+        <input type="submit" name="submit" value="Upload" id="slanje">
     </form>
 
+    <script>
+        document.getElementById("myForm").onsubmit = function(event) {
+            let slanjeForme = true;
+           
+            
+            //naslov
+            let poljeTitle = document.getElementById('title');
+            let title = document.getElementById('title').value;
+            if (title.length < 5 || title.length > 30) {
+                slanjeForme = false;
+                poljeTitle.style.border = "1px dashed red";
+                document.getElementById("porukaTitle").innerHTML = "Naslov vijesti mora imati između 5 i 30 znakova! <br>";
+            } else {
+                poljeTitle.style.border = "1px solid green";
+                document.getElementById("porukaTitle").innerHTML = "";
+            }
+            //kratak sadrzaj
+            let poljeSadrzaj = document.getElementById('shContext');
+            let sadrzaj = document.getElementById('shContext').value;
+            if(sadrzaj.length<10 || sadrzaj.length>100){
+                slanjeForme=false;
+                poljeSadrzaj.style.border = "1px dashed red";
+                document.getElementById("porukaSadrzaj").innerHTML = "Kratak sadrzaj mora imati između 10 i 100 znakova! <br>";
+            }else{
+                poljeSadrzaj.style.border = "1px solid green";
+                document.getElementById("porukaSadrzaj").innerHTML = "";
+            }
+          
+
+            //puni tekst
+            let poljeTekst = document.getElementById('tekst');
+            let tekst = document.getElementById('tekst').value;
+            if(tekst.length==0){
+                slanjeForme=false;
+                poljeTekst.style.border = "1px dashed red";
+                document.getElementById("porukaTekst").innerHTML = "Tekst mora biti unesen <br>";
+            }else{
+                poljeTekst.style.border = "1px solid green";
+                document.getElementById("porukaTekst").innerHTML = "";
+            }
+
+            //slika
+            let poljeSlika = document.getElementById('photo');
+            let slika = document.getElementById('photo').value;
+            if(slika.length==0){
+                slanjeForme=false;
+                poljeSlika.style.border = "1px dashed red";
+                document.getElementById("porukaSlika").innerHTML = "Slika mora biti unesena <br>";
+            }else{
+                poljeSlika.style.border = "1px solid green";
+                document.getElementById("porukaSlika").innerHTML = "";
+            }
+
+            //Kategorija
+            let poljeKategorija = document.getElementById('kategorija');
+            let kategorija = document.getElementById('kategorija').value;
+            if(slika.length==0){
+                slanjeForme=false;
+                poljeKategorija.style.border = "1px dashed red";
+                document.getElementById("porukaKategorija").innerHTML = "Kategorija mora biti odabrana <br>";
+            }else{
+                poljeSlika.style.border = "1px solid green";
+                document.getElementById("porukaKategorija").innerHTML = "";
+            }
+       
+
+            if (!slanjeForme) {
+                event.preventDefault();
+            }
+        };
+
+        function resetForm() {
+            document.getElementById("myForm").reset();
+            document.getElementById('title').style.border = "";
+            document.getElementById("porukaTitle").innerHTML = "";
+        }
+    </script>
+
     <?php
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit']) && isset($_FILES['slika'])) {
         include 'connect.php';
-        
-        /*if(isset($_POST['submit'] ) && isset($_FILES['slika'])){
-            echo "Slikice su uspjesne";
-        }else{
-            echo "Slikice su neuspjesne";
-        }*/
+
         $picture = $_FILES['slika']['name'];
-        echo "Slika" . $picture;
         $title = $_POST['naslov'];
         $about = $_POST['kratak'];
         $content = $_POST['sadrzaj'];
         $category = $_POST['kategorija'];
         $date = date('d.m.Y');
-        if(isset($_POST['arhiva'])){
-            $arhiva = 1;
-        }else{
-            $arhiva = 0;
-        }
-        $target_dir = 'img/'.$picture;
-        move_uploaded_file($_FILES['slika']['tmp_name'],$target_dir);
-        $query = "INSERT INTO clanak (datum, naslov, sazetak, tekst, slika, kategorija, arhiva) VALUES ('$date','$title','$about','$content','$picture','$category','$arhiva')";
-        $result = mysqli_query($dbc,$query) or die ('Error querying the database');
+
+        $arhiva = isset($_POST['arhiva']) ? 1 : 0;
+
+        $target_dir = 'img/' . $picture;
+        move_uploaded_file($_FILES['slika']['tmp_name'], $target_dir);
+
+        $query = "INSERT INTO clanak (datum, naslov, sazetak, tekst, slika, kategorija, arhiva) VALUES ('$date', '$title', '$about', '$content', '$picture', '$category', '$arhiva')";
+        $result = mysqli_query($dbc, $query) or die('Error querying the database');
+
         mysqli_close($dbc);
+    }
     ?>
 </body>
 </html>
