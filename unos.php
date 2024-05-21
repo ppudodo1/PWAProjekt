@@ -9,14 +9,19 @@
 <body>
     
 <header>
+        <div class="titleDiv">
+            <h1 class="titleTxt">L'OBS</h1>
+        </div>
+        
         <nav>
 
-            <a href="index.php">Home</a>
-            <a href="politika.php">Politika</a>
-            <a href="nekretnine.php">Nekretnine</a>
-            <a href="unos.php">Administracija</a>
+            <a href="index.php" class="redirectLink">Home</a>
+            <a href="politika.php" class="redirectLink">Politika</a>
+            <a href="nekretnine.php" class="redirectLink">Nekretnine</a>
+            <a href="administracija.php" class="redirectLink">Administracija</a>
         </nav>
     </header>
+    <hr>
 
     <form method="post" enctype="multipart/form-data" id="myForm">
         <p id="porukaTitle"></p>

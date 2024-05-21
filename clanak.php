@@ -8,14 +8,19 @@
 </head>
 <body>
 <header>
+        <div class="titleDiv">
+            <h1 class="titleTxt">L'OBS</h1>
+        </div>
+        
         <nav>
 
-            <a href="index.php">Home</a>
-            <a href="politika.php">Politika</a>
-            <a href="nekretnine.php">Nekretnine</a>
-            <a href="unos.php">Administracija</a>
+            <a href="index.php" class="redirectLink">Home</a>
+            <a href="politika.php" class="redirectLink">Politika</a>
+            <a href="nekretnine.php" class="redirectLink">Nekretnine</a>
+            <a href="unos.php" class="redirectLink">Administracija</a>
         </nav>
     </header>
+    <hr>
    <?php
    include 'connect.php';
    define('UPLPATH', 'img/');
@@ -25,8 +30,8 @@
         $query = "SELECT * from clanak WHERE id = $id";
         $result = mysqli_query($dbc,$query);
         while($row = mysqli_fetch_array($result)) {
-            echo '<article>';
-            echo'<div class="article">';
+           
+            echo'<div class="clanakContainer">';
             echo '<h4 class="title">';
             echo $row['naslov'];
             echo '</h4>';
@@ -46,7 +51,7 @@
             echo '</div>';
     
             echo '</div>';
-            echo '</article>';
+          
             }
    ?>
 </body>

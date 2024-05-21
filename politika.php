@@ -12,21 +12,27 @@ define('UPLPATH', 'img/');
 ?>
 <body>
 <header>
+        <div class="titleDiv">
+            <h1 class="titleTxt">L'OBS</h1>
+        </div>
+        
         <nav>
 
-            <a href="index.php">Home</a>
-            <a href="politika.php">Politika</a>
-            <a href="nekretnine.php">Nekretnine</a>
-            <a href="unos.php">Administracija</a>
+            <a href="index.php" class="redirectLink">Home</a>
+            <a href="politika.php" class="redirectLink">Politika</a>
+            <a href="nekretnine.php" class="redirectLink">Nekretnine</a>
+            <a href="unos.php" class="redirectLink">Administracija</a>
         </nav>
     </header>
+    <hr>
 
+    <section>
 <?php
             $query = "SELECT * FROM clanak WHERE arhiva = 0 AND kategorija = 'politika'";
             $result = mysqli_query($dbc,$query);
             $i = 0;
             while($row = mysqli_fetch_array($result)){
-                echo '<article>';
+               
                     echo'<div class="article">';
                     echo '<div class="sport_img">';
                     echo '<img src="' . UPLPATH . $row['slika'] . '"';
@@ -37,8 +43,9 @@ define('UPLPATH', 'img/');
                     echo $row['naslov'];
                     echo '</a></h4>';
                     echo '</div></div>';
-                    echo '</article>';
+                   
             }
             ?>
+            </section>
 </body>
 </html>
