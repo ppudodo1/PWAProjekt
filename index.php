@@ -32,6 +32,7 @@ define('UPLPATH', 'img/');
     
     </header>
     <hr>
+    <h1 class="subtitle">Politika</h1>
     <section>
         <?php
             $query = "SELECT * FROM clanak WHERE arhiva = 0 AND kategorija = 'politika' limit 3";
@@ -41,21 +42,22 @@ define('UPLPATH', 'img/');
                 echo '<div class="article">';
                 echo '<div class="sport_img">';
                 echo '<img src="' . UPLPATH . $row['slika'] . '" alt="Article Image">';
-                echo '</div>';  // Close sport_img div
+                echo '</div>';  
                 echo '<div class="media_body">';
                 echo '<h4 class="title">';
                 echo '<a href="clanak.php?id=' . $row['id'] . '">';
                 echo $row['naslov'];
                 echo '</a></h4>';
-                echo '</div>';  // Close media_body div
-                echo '</div>';  // Close article div
+                echo '</div>';  
+                echo '</div>'; 
             }
            
         ?>
     </section>
     <br>
+    <h1 class="subtitle">Nekretnine</h1>
     <section>
-
+              
             <?php
                  $query2 = "SELECT * FROM clanak WHERE arhiva = 0 AND kategorija = 'nekretnine' limit 3";
                  $result2 = mysqli_query($dbc,$query2);

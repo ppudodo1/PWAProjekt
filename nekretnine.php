@@ -34,7 +34,7 @@ define('UPLPATH', 'img/');
     <hr>
     <section>
     <?php
-$query2 = "SELECT * FROM clanak WHERE arhiva = 0 AND kategorija = 'nekretnine' limit 3";
+            $query2 = "SELECT * FROM clanak WHERE arhiva = 0 AND kategorija = 'nekretnine' limit 3";
             $result2 = mysqli_query($dbc,$query2);
             $i = 0;
             while($row2 = mysqli_fetch_array($result2)){

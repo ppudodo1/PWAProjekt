@@ -38,25 +38,22 @@
         $result = mysqli_query($dbc,$query);
         while($row = mysqli_fetch_array($result)) {
            
-            echo'<div class="clanakContainer">';
+            echo '<div class="clanakContainer">';
             echo '<h4 class="title">';
             echo $row['naslov'];
             echo '</h4>';
             echo '<div class="sport_img">';
-            echo '<img src="' . UPLPATH . $row['slika'] . '"';
-            echo '<br>';
+                echo '<img src="' . UPLPATH . $row['slika'] . '" alt="Image">';
+            echo '</div>';  // Close sport_img div
             echo '<p>';
             echo $row['sazetak'];
             echo '</p>';
-            echo '<br>';
-            echo 'Objavljeno : ';
-            echo $row['datum'];
-            echo '<br>';
+            echo '<p>';
+            echo 'Objavljeno : ' . $row['datum'];
+            echo '</p>';
             echo '<p>';
             echo $row['tekst'];
             echo '</p>';
-            echo '</div>';
-    
             echo '</div>';
           
             }
