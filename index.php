@@ -23,6 +23,13 @@ define('UPLPATH', 'img/');
             <a href="nekretnine.php" class="redirectLink">Nekretnine</a>
             <a href="login.html" class="redirectLink">Administracija</a>
         </nav>
+        <div class="smallDisplay">
+            <a href="index.php" class="redirectLink">Home</a>
+            <a href="politika.php" class="redirectLink">Politika</a>
+            <a href="nekretnine.php" class="redirectLink">Nekretnine</a>
+            <a href="login.html" class="redirectLink">Administracija</a>
+        </div>
+    
     </header>
     <hr>
     <section>
@@ -30,19 +37,18 @@ define('UPLPATH', 'img/');
             $query = "SELECT * FROM clanak WHERE arhiva = 0 AND kategorija = 'politika' limit 3";
             $result = mysqli_query($dbc,$query);
             $i = 0;
-            while($row = mysqli_fetch_array($result)){
-               
-                    echo'<div class="article">';
-                    echo '<div class="sport_img">';
-                    echo '<img src="' . UPLPATH . $row['slika'] . '"';
-                    echo '</div>';
-                    echo '<div class="media_body">';
-                    echo '<h4 class="title">';
-                    echo '<a href="clanak.php?id='.$row['id'].'">';
-                    echo $row['naslov'];
-                    echo '</a></h4>';
-                    echo '</div></div>';
-                
+           while ($row = mysqli_fetch_array($result)) {
+                echo '<div class="article">';
+                echo '<div class="sport_img">';
+                echo '<img src="' . UPLPATH . $row['slika'] . '" alt="Article Image">';
+                echo '</div>';  // Close sport_img div
+                echo '<div class="media_body">';
+                echo '<h4 class="title">';
+                echo '<a href="clanak.php?id=' . $row['id'] . '">';
+                echo $row['naslov'];
+                echo '</a></h4>';
+                echo '</div>';  // Close media_body div
+                echo '</div>';  // Close article div
             }
            
         ?>
@@ -56,16 +62,17 @@ define('UPLPATH', 'img/');
                  $i = 0;
                  while($row2 = mysqli_fetch_array($result2)){
                  
-                         echo'<div class="article">';
-                         echo '<div class="sport_img">';
-                         echo '<img src="' . UPLPATH . $row2['slika'] . '"';
-                         echo '</div>';
-                         echo '<div class="media_body">';
-                         echo '<h4 class="title">';
-                         echo '<a href="clanak.php?id='.$row2['id'].'">';
-                         echo $row2['naslov'];
-                         echo '</a></h4>';
-                         echo '</div></div>';
+                    echo '<div class="article">';
+                    echo '<div class="sport_img">';
+                    echo '<img src="' . UPLPATH . $row2['slika'] . '" alt="Article Image">';
+                    echo '</div>';  // Close sport_img div
+                    echo '<div class="media_body">';
+                    echo '<h4 class="title">';
+                    echo '<a href="clanak.php?id=' . $row2['id'] . '">';
+                    echo $row2['naslov'];
+                    echo '</a></h4>';
+                    echo '</div>';  // Close media_body div
+                    echo '</div>';  // Close article div
                      
                  }
             ?>

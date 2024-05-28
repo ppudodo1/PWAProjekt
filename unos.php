@@ -18,43 +18,66 @@
             <a href="index.php" class="redirectLink">Home</a>
             <a href="politika.php" class="redirectLink">Politika</a>
             <a href="nekretnine.php" class="redirectLink">Nekretnine</a>
-            <a href="administracija.php" class="redirectLink">Administracija</a>
+            <a href="login.html" class="redirectLink">Administracija</a>
         </nav>
+        <div class="smallDisplay">
+            <a href="index.php" class="redirectLink">Home</a>
+            <a href="politika.php" class="redirectLink">Politika</a>
+            <a href="nekretnine.php" class="redirectLink">Nekretnine</a>
+            <a href="login.html" class="redirectLink">Administracija</a>
+        </div>
+    
     </header>
     <hr>
-
-    <form method="post" enctype="multipart/form-data" id="myForm">
-        <p id="porukaTitle"></p>
-        <label for="naslov">Naslov vijesti:</label>
-        <br>
-        <input type="text" name="naslov" id="title">
-        <br>
+    <div class="unosContainer">
+    <form method="post" enctype="multipart/form-data" id="myForm" class="unos">
+        <div>
+            <p id="porukaTitle"></p>
+            <label for="naslov">Naslov vijesti:</label>
+            <br>
+            <input type="text" name="naslov" id="title">
+        </div>
         <label for="kratak">Kratak sadržaj vijesti (do 50 znakova):</label>
-        <br>
-        <p id="porukaSadrzaj"></p>
-        <textarea name="kratak" id="shContext" maxlength="50"></textarea>
-        <br>
-        <label for="sadrzaj">Sadrzaj vijesti:</label>
-        <br>
-        <p id="porukaTekst"></p>
-        <textarea name="sadrzaj" id="tekst"></textarea>
-        <br>
-        <p id="porukaSlika"></p>
-        <input type="file" name="slika" id="photo">
-        <br>
-        <label for="kategorija">Kategorija vijesti</label>
-        <br>
-        <p id="porukaKategorija"></p>
-        <input type="text" name="kategorija" id="kategorija">
-        <br>
-        <label for="arhiva">Spremiti u arhivu:</label>
-        <br>
+
+        <div>
         
-        <input type="checkbox" name="arhiva" id="arhiva">
-        <br>
-        <button type="button" onclick="resetForm()">Poništi</button>
-        <input type="submit" name="submit" value="Upload" id="slanje">
+            <p id="porukaSadrzaj"></p>
+            <textarea name="kratak" id="shContext" maxlength="50" class="context"></textarea>
+        </div>
+        
+        <div>
+            <label for="sadrzaj">Sadrzaj vijesti:</label>
+            <br>
+            <p id="porukaTekst"></p>
+            <textarea name="sadrzaj" id="tekst"></textarea>
+        </div>
+        
+        <div>
+            <p id="porukaSlika"></p>
+            <input type="file" name="slika" id="photo">
+        </div>
+    
+        <div>
+            <label for="kategorija">Kategorija vijesti</label>
+            <br>
+            <p id="porukaKategorija"></p>
+            <input type="text" name="kategorija" id="kategorija">
+        </div>
+        
+        <div>
+            <label for="arhiva">Spremiti u arhivu:</label>
+            <br>
+            <input type="checkbox" name="arhiva" id="arhiva">
+        </div>
+        
+        <div>
+            <button type="button" onclick="resetForm()">Poništi</button>
+            <input type="submit" name="submit" value="Upload" id="slanje">
+        </div>
+        
     </form>
+    </div>
+    
 
     <script>
         document.getElementById("myForm").onsubmit = function(event) {

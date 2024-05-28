@@ -17,8 +17,15 @@
             <a href="index.php" class="redirectLink">Home</a>
             <a href="politika.php" class="redirectLink">Politika</a>
             <a href="nekretnine.php" class="redirectLink">Nekretnine</a>
-            <a href="unos.php" class="redirectLink">Administracija</a>
+            <a href="login.html" class="redirectLink">Administracija</a>
         </nav>
+        <div class="smallDisplay">
+            <a href="index.php" class="redirectLink">Home</a>
+            <a href="politika.php" class="redirectLink">Politika</a>
+            <a href="nekretnine.php" class="redirectLink">Nekretnine</a>
+            <a href="login.html" class="redirectLink">Administracija</a>
+        </div>
+    
     </header>
     <hr>
    <?php

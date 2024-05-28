@@ -21,8 +21,15 @@ define('UPLPATH', 'img/');
             <a href="index.php" class="redirectLink">Home</a>
             <a href="politika.php" class="redirectLink">Politika</a>
             <a href="nekretnine.php" class="redirectLink">Nekretnine</a>
-            <a href="unos.php" class="redirectLink">Administracija</a>
+            <a href="login.html" class="redirectLink">Administracija</a>
         </nav>
+        <div class="smallDisplay">
+            <a href="index.php" class="redirectLink">Home</a>
+            <a href="politika.php" class="redirectLink">Politika</a>
+            <a href="nekretnine.php" class="redirectLink">Nekretnine</a>
+            <a href="login.html" class="redirectLink">Administracija</a>
+        </div>
+    
     </header>
     <hr>
 
@@ -33,16 +40,17 @@ define('UPLPATH', 'img/');
             $i = 0;
             while($row = mysqli_fetch_array($result)){
                
-                    echo'<div class="article">';
-                    echo '<div class="sport_img">';
-                    echo '<img src="' . UPLPATH . $row['slika'] . '"';
-                    echo '</div>';
-                    echo '<div class="media_body">';
-                    echo '<h4 class="title">';
-                    echo '<a href="clanak.php?id='.$row['id'].'">';
-                    echo $row['naslov'];
-                    echo '</a></h4>';
-                    echo '</div></div>';
+                echo '<div class="article">';
+                echo '<div class="sport_img">';
+                echo '<img src="' . UPLPATH . $row['slika'] . '" alt="Article Image">';
+                echo '</div>';  // Close sport_img div
+                echo '<div class="media_body">';
+                echo '<h4 class="title">';
+                echo '<a href="clanak.php?id=' . $row['id'] . '">';
+                echo $row['naslov'];
+                echo '</a></h4>';
+                echo '</div>';  // Close media_body div
+                echo '</div>';  // Close article div
                    
             }
             ?>
