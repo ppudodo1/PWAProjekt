@@ -37,18 +37,20 @@
         $query = "SELECT * from clanak WHERE id = $id";
         $result = mysqli_query($dbc,$query);
         while($row = mysqli_fetch_array($result)) {
-           
+           if($row['kategorija']=="politika"){
+                echo '<p class="categorySubtitle"> Lobs > Politika</p>';
+           }
             echo '<div class="clanakContainer">';
-            echo '<h4 class="title">';
+            echo '<h1 class="articleTitle">';
             echo $row['naslov'];
-            echo '</h4>';
-            echo '<div class="sport_img">';
+            echo '</h1>';
+            echo '<div class="clanak_img">';
                 echo '<img src="' . UPLPATH . $row['slika'] . '" alt="Image">';
             echo '</div>';  // Close sport_img div
             echo '<p>';
             echo $row['sazetak'];
             echo '</p>';
-            echo '<p>';
+            echo '<p class="datumObj">';
             echo 'Objavljeno : ' . $row['datum'];
             echo '</p>';
             echo '<p>';

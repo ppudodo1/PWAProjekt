@@ -45,9 +45,12 @@ define('UPLPATH', 'img/');
                 echo '</div>';  
                 echo '<div class="media_body">';
                 echo '<h4 class="title">';
-                echo '<a href="clanak.php?id=' . $row['id'] . '">';
+                echo '<a href="clanak.php?id=' . $row['id'] . '" class="clanakLink">';
                 echo $row['naslov'];
                 echo '</a></h4>';
+                echo '<p class="datumIndex">';
+                echo 'Posted: '. $row['datum'];
+                echo '</p>';
                 echo '</div>';  
                 echo '</div>'; 
             }
@@ -70,9 +73,12 @@ define('UPLPATH', 'img/');
                     echo '</div>';  // Close sport_img div
                     echo '<div class="media_body">';
                     echo '<h4 class="title">';
-                    echo '<a href="clanak.php?id=' . $row2['id'] . '">';
+                    echo '<a href="clanak.php?id=' . $row2['id'] . '" class=clanakLink>';
                     echo $row2['naslov'];
                     echo '</a></h4>';
+                    echo '<p class="datumIndex">';
+                    echo 'Posted: '. $row2['datum'];
+                    echo '</p>';
                     echo '</div>';  // Close media_body div
                     echo '</div>';  // Close article div
                      

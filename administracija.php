@@ -1,4 +1,36 @@
 <?php
+
+echo '<!DOCTYPE html>';
+echo '<html lang="en">';
+echo '<head>';
+echo '    <meta charset="UTF-8">';
+echo '    <meta name="viewport" content="width=device-width, initial-scale=1.0">';
+echo '    <title>Your Page Title</title>';
+echo '     <link rel="stylesheet" type="text/css" href="./style.css">'; // Include your CSS file here
+echo '</head>';
+echo '<body>';
+echo '    <header>';
+echo '        <div class="titleDiv">';
+echo '            <h1 class="titleTxt">L\'OBS</h1>';
+echo '        </div>';
+echo '        <nav>';
+echo '            <a href="index.php" class="redirectLink">Home</a>';
+echo '            <a href="politika.php" class="redirectLink">Politika</a>';
+echo '            <a href="nekretnine.php" class="redirectLink">Nekretnine</a>';
+echo '            <a href="login.html" class="redirectLink">Administracija</a>';
+echo '        </nav>';
+echo '        <div class="smallDisplay">';
+echo '            <a href="index.php" class="redirectLink">Home</a>';
+echo '            <a href="politika.php" class="redirectLink">Politika</a>';
+echo '            <a href="nekretnine.php" class="redirectLink">Nekretnine</a>';
+echo '            <a href="login.html" class="redirectLink">Administracija</a>';
+echo '        </div>';
+echo '    </header>';
+echo '    <hr>';
+echo '</body>';
+echo '</html>';
+
+
     session_start();
     include 'connect.php';
     define('UPLPATH', 'img/');
