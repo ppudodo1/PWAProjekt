@@ -25,8 +25,9 @@ echo '            <a href="politika.php" class="redirectLink">Politika</a>';
 echo '            <a href="nekretnine.php" class="redirectLink">Nekretnine</a>';
 echo '            <a href="login.html" class="redirectLink">Administracija</a>';
 echo '        </div>';
+echo '        <hr>';
 echo '    </header>';
-echo '    <hr>';
+
 echo '</body>';
 echo '</html>';
 
@@ -183,19 +184,6 @@ echo '</html>';
     }
 
 
+    echo ' <footer>Dominik Katavić: 0246108196</footer>';
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
 ?>

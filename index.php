@@ -85,5 +85,6 @@ define('UPLPATH', 'img/');
                  }
             ?>
     </section>
+    <footer>Dominik Katavić: 0246108196</footer>
 </body>
 </html>

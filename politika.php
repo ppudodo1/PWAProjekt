@@ -29,31 +29,35 @@ define('UPLPATH', 'img/');
             <a href="nekretnine.php" class="redirectLink">Nekretnine</a>
             <a href="login.html" class="redirectLink">Administracija</a>
         </div>
-    
-    </header>
     <hr>
+    </header>
 
-    <section>
-<?php
-            $query = "SELECT * FROM clanak WHERE arhiva = 0 AND kategorija = 'politika'";
-            $result = mysqli_query($dbc,$query);
-            $i = 0;
-            while($row = mysqli_fetch_array($result)){
-               
-                echo '<div class="article">';
-                echo '<div class="sport_img">';
-                echo '<img src="' . UPLPATH . $row['slika'] . '" alt="Article Image">';
-                echo '</div>';  // Close sport_img div
-                echo '<div class="media_body">';
-                echo '<h4 class="title">';
-                echo '<a href="clanak.php?id=' . $row['id'] . '">';
-                echo $row['naslov'];
-                echo '</a></h4>';
-                echo '</div>';  // Close media_body div
-                echo '</div>';  // Close article div
-                   
-            }
+    <div class="container-wrapper">
+            <section>
+        <?php
+                    $query = "SELECT * FROM clanak WHERE arhiva = 0 AND kategorija = 'politika'";
+                    $result = mysqli_query($dbc,$query);
+                    $i = 0;
+                    while($row = mysqli_fetch_array($result)){
+                    
+                        echo '<div class="article">';
+                        echo '<div class="sport_img">';
+                        echo '<img src="' . UPLPATH . $row['slika'] . '" alt="Article Image">';
+                        echo '</div>';  // Close sport_img div
+                        echo '<div class="media_body">';
+                        echo '<h4 class="title">';
+                        echo '<a href="clanak.php?id=' . $row['id'] . '">';
+                        echo $row['naslov'];
+                        echo '</a></h4>';
+                        echo '</div>';  // Close media_body div
+                        echo '</div>';  // Close article div
+                        
+                    }
             ?>
-            </section>
+        </section>
+    </div>
+ 
+    <footer>Dominik Katavić: 0246108196</footer>
+
 </body>
 </html>
