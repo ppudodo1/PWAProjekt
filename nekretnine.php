@@ -44,7 +44,7 @@ define('UPLPATH', 'img/');
                 echo '</div>';  
                 echo '<div class="media_body">';
                 echo '<h4 class="title">';
-                echo '<a href="clanak.php?id=' . $row2['id'] . '">';
+                echo '<a href="clanak.php?id=' . $row2['id'] . '" class="clanakLink" >';
                 echo $row2['naslov'];
                 echo '</a></h4>';
                 echo '</div>';  

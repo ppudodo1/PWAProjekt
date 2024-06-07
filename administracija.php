@@ -33,6 +33,7 @@ echo '</html>';
 
 
     session_start();
+    echo 'dwadwa';
     include 'connect.php';
     define('UPLPATH', 'img/');
     $uspjesnaPrijava = false;
@@ -65,6 +66,7 @@ echo '</html>';
             }
                 $_SESSION['$username'] = $imeKorisnika;
                 $_SESSION['$level'] = $levelKorisnika;
+                
             } else {
                 $uspjesnaPrijava = false;
             }
@@ -73,7 +75,7 @@ echo '</html>';
     if(isset($_POST["logout"])){
         session_unset();
         session_destroy();
-        header("Location: login.html");
+        header("Location: login.php");
         exit();
     }   
     if(($uspjesnaPrijava == true && $admin == true) || (isset($_SESSION['$username'])) && $_SESSION['$level']==1){
