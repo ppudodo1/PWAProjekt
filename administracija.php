@@ -5,7 +5,7 @@ echo '<html lang="en">';
 echo '<head>';
 echo '    <meta charset="UTF-8">';
 echo '    <meta name="viewport" content="width=device-width, initial-scale=1.0">';
-echo '    <title>Your Page Title</title>';
+echo '    <title>Document</title>';
 echo '     <link rel="stylesheet" type="text/css" href="./style.css">'; // Include your CSS file here
 echo '</head>';
 echo '<body>';
@@ -184,8 +184,8 @@ echo '</html>';
         echo "<br>";
         echo "<a href = 'registracija.php'>Registracija</a>";
     }
-
-
     echo ' <footer>Dominik Katavić: 0246108196</footer>';
-
+    // Porediti podatke u bazi
+    // Rewriteati da se korisit prepared statement kod unosa u bazu
+    // Popraviti css na loginu, registeru, administraciji i unosu
 ?>

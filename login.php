@@ -24,24 +24,24 @@
             <a href="index.php" class="redirectLink">Home</a>
             <a href="politika.php" class="redirectLink">Politika</a>
             <a href="nekretnine.php" class="redirectLink">Nekretnine</a>
-            <a href="login.html" class="redirectLink">Administracija</a>
+            <a href="login.php" class="redirectLink">Administracija</a>
         </nav>
         <div class="smallDisplay">
             <a href="index.php" class="redirectLink">Home</a>
             <a href="politika.php" class="redirectLink">Politika</a>
             <a href="nekretnine.php" class="redirectLink">Nekretnine</a>
-            <a href="login.html" class="redirectLink">Administracija</a>
+            <a href="login.php" class="redirectLink">Administracija</a>
         </div>
         <hr>
     </header>
  
     <div class="form-wrapper">
         <form action="administracija.php" method="post">
-            <input type="text" name="username" placeholder="username">
+            <input type="text" name="username" placeholder="username" class="login-input">
             <br>
-            <input type="password" name="password" placeholder="password">
+            <input type="password" name="password" placeholder="password" class="login-input">
             <br>
-            <input type="submit" name="prijava" value="Log in">
+            <input type="submit" name="prijava" value="Log in" class="button-input">
         </form>
         <p>Nemate račun? Napravite ga ovdje</p>
         <a href="./registracija.php">Registracija</a>

@@ -17,65 +17,63 @@
             <a href="index.php" class="redirectLink">Home</a>
             <a href="politika.php" class="redirectLink">Politika</a>
             <a href="nekretnine.php" class="redirectLink">Nekretnine</a>
-            <a href="login.html" class="redirectLink">Administracija</a>
+            <a href="login.php" class="redirectLink">Administracija</a>
         </nav>
         <div class="smallDisplay">
             <a href="index.php" class="redirectLink">Home</a>
             <a href="politika.php" class="redirectLink">Politika</a>
             <a href="nekretnine.php" class="redirectLink">Nekretnine</a>
-            <a href="login.html" class="redirectLink">Administracija</a>
+            <a href="login.php" class="redirectLink">Administracija</a>
         </div>
-    
+    <hr>
     </header>
 
-    <section role="main">
-        <form action="" method="POST" enctype="multipart/form-data">
+    <main role="main" class="register-container">
+        <form action="" method="POST" enctype="multipart/form-data" class="test">
             <div class="from-item">
                 <span id="porukaIme" class="bojaPoruke"></span>
-                <label for="title">Ime: </label>
+                
                 <div class="form-field">
-                    <input type="text" name="ime" id="ime" class="form-field-textual">
+                    <input type="text" name="ime" id="ime" class="login-input" placeholder="ime">
 
                 </div>
             </div>
             <div class="form-item">
                 <span id="porukaPrezime"></span>
-                <label for="about">Prezime: </label>
+              
                 <div class="form-field">
-                <input type="text" name="prezime" id="prezime" class="formfield-textual">
+                <input type="text" name="prezime" id="prezime" class="login-input" placeholder="prezime">
                 </div>
             </div>
             <div class="form-item">
                 <span id="porukaUsername" class="bojaPoruke"></span>
-                <label for="content">Korisničko ime:</label>
               
-                
                 <div class="form-field">
-                    <input type="text" name="username" id="username" class="formfield-textual">
+                    <input type="text" name="username" id="username" class="login-input" placeholder="korisnicko ime">
                 </div>
             </div>
             <div class="form-item">
                 <span id="porukaPass" class="bojaPoruke"></span>
-                <label for="pphoto">Lozinka: </label>
+                
                 <div class="form-field">
-                    <input type="password" name="pass" id="pass" class="formfield-textual">
+                    <input type="password" name="pass" id="pass" class="login-input" placeholder="lozinka">
                 </div>
             </div>
             <div class="form-item">
                 <span id="porukaPassRep" class="bojaPoruke"></span>
-                <label for="pphoto">Ponovite lozinku: </label>
+               
                 <div class="form-field">
                     <input type="password" name="passRep" id="passRep"
-                    class="form-field-textual">
+                    class="login-input" placeholder="lozinka">
                 </div>
             </div>
             <div class="form-item">
                 <button type="submit" value="Prijava"
-                id="slanje">Prijava</button>
+                id="slanje" class="button-input">Prijava</button>
             </div>
         </form>
 
-    </section>
+</main>
 
 
     <?php

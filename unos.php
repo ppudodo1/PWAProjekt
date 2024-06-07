@@ -12,56 +12,54 @@
         <div class="titleDiv">
             <h1 class="titleTxt">L'OBS</h1>
         </div>
-        
         <nav>
-
             <a href="index.php" class="redirectLink">Home</a>
             <a href="politika.php" class="redirectLink">Politika</a>
             <a href="nekretnine.php" class="redirectLink">Nekretnine</a>
-            <a href="login.html" class="redirectLink">Administracija</a>
+            <a href="login.php" class="redirectLink">Administracija</a>
         </nav>
         <div class="smallDisplay">
             <a href="index.php" class="redirectLink">Home</a>
             <a href="politika.php" class="redirectLink">Politika</a>
             <a href="nekretnine.php" class="redirectLink">Nekretnine</a>
-            <a href="login.html" class="redirectLink">Administracija</a>
+            <a href="login.php" class="redirectLink">Administracija</a>
         </div>
-    
+        <hr>
     </header>
-    <hr>
+   
     <div class="unosContainer">
     <form method="post" enctype="multipart/form-data" id="myForm" class="unos">
         <div>
             <p id="porukaTitle"></p>
             <label for="naslov">Naslov vijesti:</label>
             <br>
-            <input type="text" name="naslov" id="title">
+            <input type="text" name="naslov" id="title" class="login-input">
         </div>
         <label for="kratak">Kratak sadržaj vijesti (do 50 znakova):</label>
 
         <div>
         
             <p id="porukaSadrzaj"></p>
-            <textarea name="kratak" id="shContext" maxlength="50" class="context"></textarea>
+            <textarea name="kratak" id="shContext" maxlength="50" class="login-input context"></textarea>
         </div>
         
         <div>
             <label for="sadrzaj">Sadrzaj vijesti:</label>
             <br>
             <p id="porukaTekst"></p>
-            <textarea name="sadrzaj" id="tekst"></textarea>
+            <textarea name="sadrzaj" id="tekst" class="login-input"></textarea>
         </div>
-        
+        <br>
         <div>
             <p id="porukaSlika"></p>
             <input type="file" name="slika" id="photo">
         </div>
-    
+        <br>
         <div>
             <label for="kategorija">Kategorija vijesti</label>
             <br>
             <p id="porukaKategorija"></p>
-            <input type="text" name="kategorija" id="kategorija">
+            <input type="text" name="kategorija" id="kategorija" class="login-input">
         </div>
         
         <div>
@@ -71,8 +69,8 @@
         </div>
         
         <div>
-            <button type="button" onclick="resetForm()">Poništi</button>
-            <input type="submit" name="submit" value="Upload" id="slanje">
+            <button type="button" onclick="resetForm()" class="button-input">Poništi</button>
+            <input type="submit" name="submit" value="Upload" id="slanje" class="button-input">
         </div>
         
     </form>
