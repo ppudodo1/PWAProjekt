@@ -44,15 +44,15 @@ nav{
 
 .article{
  
-    width: 15%;
-  
+    
+    width: 25%;
   height: 300px;
   border: 1px solid rgb(225, 225, 225);
 
     display: flex;
     flex-direction: column;
     transition: 0.2s all linear;
- 
+   
 }
 .article:hover{
     transform: translateY(-10px);
@@ -86,6 +86,7 @@ section{
     align-items: center;
     margin-top: 20px;
     gap: 2rem;
+    
     flex-wrap: wrap;
 }
 
@@ -215,12 +216,34 @@ footer{
     align-items: center;
     gap: 1rem;
 }
-.form-item{
+.biggest-div{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 
 }
+.big-div{
+    box-shadow: 0px 0px 10px rgb(195, 195, 195);
+    border-radius: 10px;
+    margin-top: 20px;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.second{
+    margin-top: 20px;
+}
+
 @media (max-width:992px) {
     .article{
         width: 40%;
+    }
+    .big-div{
+        width: 60%;
     }
 }
 @media (max-width:600px) {
@@ -246,4 +269,11 @@ footer{
     .clanak_img img{
         width: 100%;
     }
+    .big-div{
+        width: 100%;
+    }
+    .form-field-textual{
+        width: 100px;
+    }
+    
 }
