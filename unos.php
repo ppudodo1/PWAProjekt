@@ -59,7 +59,10 @@
             <label for="kategorija">Kategorija vijesti</label>
             <br>
             <p id="porukaKategorija"></p>
-            <input type="text" name="kategorija" id="kategorija" class="login-input">
+            <select name="kategorija" id="" class="form-field-textual" value="'.$row['kategorija'].'">
+                <option value="politika">Politika</option>
+                <option value="nekretnine">Nekretnine</option>
+            </select>
         </div>
         
         <div>

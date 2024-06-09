@@ -32,10 +32,10 @@ define('UPLPATH', 'img/');
     <hr>
     </header>
 
-    <div class="container-wrapper">
+
             <section>
         <?php
-                    $query = "SELECT * FROM clanak WHERE arhiva = 0 AND kategorija = 'politika'";
+                    $query = "SELECT * FROM clanak WHERE arhiva = 0 AND kategorija = 'politika' limit 3";
                     $result = mysqli_query($dbc,$query);
                     $i = 0;
                     while($row = mysqli_fetch_array($result)){
@@ -49,14 +49,40 @@ define('UPLPATH', 'img/');
                         echo '<a href="clanak.php?id=' . $row['id'] . '" class="clanakLink">';
                         echo $row['naslov'];
                         echo '</a></h4>';
+                        echo '<p class="datumIndex">';
+                        echo 'Objavljeno: '. $row['datum'];
+                        echo '</p>';
                         echo '</div>';  
                         echo '</div>';  
                         
                     }
             ?>
         </section>
-    </div>
- 
+        <section>
+        <?php
+        // Second query to get the next 3 articles
+        $query2 = "SELECT * FROM clanak WHERE arhiva = 0 AND kategorija = 'politika' LIMIT 3 OFFSET 3";
+        $result2 = mysqli_query($dbc, $query2);
+
+        while($row2 = mysqli_fetch_array($result2)){
+            echo '<div class="article">';
+            echo '<div class="sport_img">';
+            echo '<img src="' . UPLPATH . $row2['slika'] . '" alt="Article Image">';
+            echo '</div>'; 
+            echo '<div class="media_body">';
+            echo '<h4 class="title">';
+            echo '<a href="clanak.php?id=' . $row2['id'] . '" class="clanakLink">';
+            echo $row2['naslov'];
+            echo '</a></h4>';
+            echo '<p class="datumIndex">';
+            echo 'Objavljeno: '. $row2['datum'];
+            echo '</p>';
+            echo '</div>';  
+            echo '</div>';  
+        }
+        ?>
+    </section>
+
     <footer>Dominik Katavić: 0246108196</footer>
 
 </body>

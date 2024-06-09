@@ -49,7 +49,7 @@ define('UPLPATH', 'img/');
                 echo $row['naslov'];
                 echo '</a></h4>';
                 echo '<p class="datumIndex">';
-                echo 'Posted: '. $row['datum'];
+                echo 'Objavljeno: '. $row['datum'];
                 echo '</p>';
                 echo '</div>';  
                 echo '</div>'; 
@@ -77,7 +77,7 @@ define('UPLPATH', 'img/');
                     echo $row2['naslov'];
                     echo '</a></h4>';
                     echo '<p class="datumIndex">';
-                    echo 'Posted: '. $row2['datum'];
+                    echo 'Objavljeno: '. $row2['datum'];
                     echo '</p>';
                     echo '</div>';  // Close media_body div
                     echo '</div>';  // Close article div

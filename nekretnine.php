@@ -31,7 +31,7 @@ define('UPLPATH', 'img/');
         </div>
         <hr>
     </header>
-    <div class="container-wrapper">
+  
     <section>
     <?php
             $query2 = "SELECT * FROM clanak WHERE arhiva = 0 AND kategorija = 'nekretnine' limit 3";
@@ -47,13 +47,40 @@ define('UPLPATH', 'img/');
                 echo '<a href="clanak.php?id=' . $row2['id'] . '" class="clanakLink" >';
                 echo $row2['naslov'];
                 echo '</a></h4>';
+                echo '<p class="datumIndex">';
+                echo 'Objavljeno: '. $row2['datum'];
+                echo '</p>';
                 echo '</div>';  
                 echo '</div>';  
               
             }
         ?>
         </section>
-    </div>
+        <section>
+    <?php
+            $query2 = "SELECT * FROM clanak WHERE arhiva = 0 AND kategorija = 'nekretnine' limit 3 offset 3";
+            $result2 = mysqli_query($dbc,$query2);
+            $i = 0;
+            while($row2 = mysqli_fetch_array($result2)){
+                echo '<div class="article">';
+                echo '<div class="sport_img">';
+                echo '<img src="' . UPLPATH . $row2['slika'] . '" alt="Article Image">';
+                echo '</div>';  
+                echo '<div class="media_body">';
+                echo '<h4 class="title">';
+                echo '<a href="clanak.php?id=' . $row2['id'] . '" class="clanakLink" >';
+                echo $row2['naslov'];
+                echo '</a></h4>';
+                echo '<p class="datumIndex">';
+                echo 'Objavljeno: '. $row2['datum'];
+                echo '</p>';
+                echo '</div>';  
+                echo '</div>';  
+              
+            }
+        ?>
+        </section>
+   
 
         <footer>Dominik Katavić: 0246108196</footer>
 

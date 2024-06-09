@@ -177,6 +177,6 @@ echo '</html>';
     }
     echo ' <footer>Dominik Katavić: 0246108196</footer>';
     // Porediti podatke u bazi
-    // Rewriteati da se koristi prepared statement kod unosa u bazu
+  
     
 ?>
