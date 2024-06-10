@@ -6,7 +6,7 @@ echo '<head>';
 echo '    <meta charset="UTF-8">';
 echo '    <meta name="viewport" content="width=device-width, initial-scale=1.0">';
 echo '    <title>Document</title>';
-echo '     <link rel="stylesheet" type="text/css" href="./style.css">'; // Include your CSS file here
+echo '     <link rel="stylesheet" type="text/css" href="./style.css">'; 
 echo '</head>';
 echo '<body>';
 echo '    <header>';
@@ -40,7 +40,7 @@ echo '</html>';
         $prijavaImeKorisnika = $_POST["username"];
         $prijavaLozinkaKorisnika = $_POST["password"];
         
-        //echo $prijavaImeKorisnika;
+       
 
         $sql = "SELECT korisnicko_ime, lozinka, razina FROM korisnik WHERE korisnicko_ime = ?";
         $stmt = mysqli_stmt_init($dbc);
@@ -176,7 +176,7 @@ echo '</html>';
         echo "<a href = 'registracija.php'>Registracija</a>";
     }
     echo ' <footer>Dominik Katavić: 0246108196</footer>';
-    // Porediti podatke u bazi
+
   
     
 ?>

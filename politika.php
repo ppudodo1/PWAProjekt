@@ -31,10 +31,8 @@ define('UPLPATH', 'img/');
         </div>
     <hr>
     </header>
-
-
-            <section>
-        <?php
+        <section>
+            <?php
                     $query = "SELECT * FROM clanak WHERE arhiva = 0 AND kategorija = 'politika' limit 3";
                     $result = mysqli_query($dbc,$query);
                     $i = 0;
@@ -60,7 +58,7 @@ define('UPLPATH', 'img/');
         </section>
         <section>
         <?php
-        // Second query to get the next 3 articles
+      
         $query2 = "SELECT * FROM clanak WHERE arhiva = 0 AND kategorija = 'politika' LIMIT 3 OFFSET 3";
         $result2 = mysqli_query($dbc, $query2);
 

@@ -167,31 +167,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit']) && isset($_
     $about = $_POST['kratak'];
     $content = $_POST['sadrzaj'];
     $category = $_POST['kategorija'];
-    $date = date('Y-m-d'); // Use the format accepted by MySQL for DATE type
+    $date = date('Y-m-d'); 
 
     $arhiva = isset($_POST['arhiva']) ? 1 : 0;
 
     $target_dir = 'img/' . $picture;
     move_uploaded_file($_FILES['slika']['tmp_name'], $target_dir);
 
-    // Prepare the SQL statement
+
     $query = "INSERT INTO clanak (datum, naslov, sazetak, tekst, slika, kategorija, arhiva) VALUES (?, ?, ?, ?, ?, ?, ?)";
     $stmt = mysqli_prepare($dbc, $query);
 
-    // Bind parameters
     mysqli_stmt_bind_param($stmt, 'ssssssi', $date, $title, $about, $content, $picture, $category, $arhiva);
 
-    // Execute the statement
+
     mysqli_stmt_execute($stmt);
 
-    // Check if the query was successful
+ 
     if (mysqli_stmt_affected_rows($stmt) === 1) {
         echo "Data inserted successfully.";
     } else {
         echo "Error inserting data.";
     }
 
-    // Close the statement and database connection
+
     mysqli_stmt_close($stmt);
     mysqli_close($dbc);
 }

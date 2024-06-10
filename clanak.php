@@ -11,9 +11,7 @@
         <div class="titleDiv">
             <h1 class="titleTxt">L'OBS</h1>
         </div>
-        
         <nav>
-
             <a href="index.php" class="redirectLink">Home</a>
             <a href="politika.php" class="redirectLink">Politika</a>
             <a href="nekretnine.php" class="redirectLink">Nekretnine</a>
@@ -39,6 +37,9 @@
         while($row = mysqli_fetch_array($result)) {
            if($row['kategorija']=="politika"){
                 echo '<p class="categorySubtitle"> Lobs > Politika</p>';
+           }else if($row['kategorija']== "nekretnine"){
+                echo '<p class="categorySubtitle"> Lobs > Nekretnine</p>';
+
            }
             echo '<div class="clanakContainer">';
             echo '<h1 class="articleTitle">';
@@ -46,7 +47,7 @@
             echo '</h1>';
             echo '<div class="clanak_img">';
                 echo '<img src="' . UPLPATH . $row['slika'] . '" alt="Image">';
-            echo '</div>';  // Close sport_img div
+            echo '</div>';  
             echo '<p>';
             echo $row['sazetak'];
             echo '</p>';

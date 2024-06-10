@@ -70,7 +70,7 @@ define('UPLPATH', 'img/');
                     echo '<div class="article">';
                     echo '<div class="sport_img">';
                     echo '<img src="' . UPLPATH . $row2['slika'] . '" alt="Article Image">';
-                    echo '</div>';  // Close sport_img div
+                    echo '</div>';  
                     echo '<div class="media_body">';
                     echo '<h4 class="title">';
                     echo '<a href="clanak.php?id=' . $row2['id'] . '" class=clanakLink>';
@@ -79,8 +79,8 @@ define('UPLPATH', 'img/');
                     echo '<p class="datumIndex">';
                     echo 'Objavljeno: '. $row2['datum'];
                     echo '</p>';
-                    echo '</div>';  // Close media_body div
-                    echo '</div>';  // Close article div
+                    echo '</div>';  
+                    echo '</div>';  
                      
                  }
             ?>
