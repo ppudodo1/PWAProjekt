@@ -9,7 +9,7 @@
 <body>
 <?php
         session_start();
-        if(isset($_SESSION['$username']) && $_SESSION['$username'] != "" && isset($_SESSION['$level']) && $_SESSION['$level'] == 1){
+        if(isset($_SESSION['$username']) && $_SESSION['$username'] != ""){
             header('Location: administracija.php');
             exit(); 
             

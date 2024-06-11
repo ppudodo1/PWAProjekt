@@ -17,13 +17,13 @@ echo '        <nav>';
 echo '            <a href="index.php" class="redirectLink">Home</a>';
 echo '            <a href="politika.php" class="redirectLink">Politika</a>';
 echo '            <a href="nekretnine.php" class="redirectLink">Nekretnine</a>';
-echo '            <a href="login.html" class="redirectLink">Administracija</a>';
+echo '            <a href="login.php" class="redirectLink">Administracija</a>';
 echo '        </nav>';
 echo '        <div class="smallDisplay">';
 echo '            <a href="index.php" class="redirectLink">Home</a>';
 echo '            <a href="politika.php" class="redirectLink">Politika</a>';
 echo '            <a href="nekretnine.php" class="redirectLink">Nekretnine</a>';
-echo '            <a href="login.html" class="redirectLink">Administracija</a>';
+echo '            <a href="login.php" class="redirectLink">Administracija</a>';
 echo '        </div>';
 echo '        <hr>';
 echo '    </header>';
@@ -79,6 +79,7 @@ echo '</html>';
     }   
     if(($uspjesnaPrijava == true && $admin == true) || (isset($_SESSION['$username']) && $_SESSION['$level'] == 1)) {
         echo '<div class="biggest-div">';
+        echo '<a href="unos.php" class="unosLink">Unesite novi clanak</a>';
         $query = "SELECT * FROM clanak";
         $result = mysqli_query($dbc, $query);
         while($row = mysqli_fetch_array($result)) {
@@ -137,6 +138,7 @@ echo '</html>';
                 </form>';
             echo '</div>';
         }
+        
         echo '<form method="post">';
         echo '<button type="submit" name="logout" class ="button-input second">Log out</button>';
         echo '</form>';
@@ -175,6 +177,7 @@ echo '</html>';
         echo "<br>";
         echo "<a href = 'registracija.php'>Registracija</a>";
     }
+    
     echo ' <footer>Dominik Katavić: 0246108196</footer>';
 
   
