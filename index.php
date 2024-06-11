@@ -15,9 +15,7 @@ define('UPLPATH', 'img/');
         <div class="titleDiv">
             <h1 class="titleTxt">L'OBS</h1>
         </div>
-        
         <nav>
-
             <a href="index.php" class="redirectLink">Home</a>
             <a href="politika.php" class="redirectLink">Politika</a>
             <a href="nekretnine.php" class="redirectLink">Nekretnine</a>
@@ -29,7 +27,6 @@ define('UPLPATH', 'img/');
             <a href="nekretnine.php" class="redirectLink">Nekretnine</a>
             <a href="login.php" class="redirectLink">Administracija</a>
         </div>
-    
     </header>
     <hr>
     <h1 class="subtitle">Politika</h1>
@@ -39,7 +36,7 @@ define('UPLPATH', 'img/');
             $result = mysqli_query($dbc,$query);
             $i = 0;
            while ($row = mysqli_fetch_array($result)) {
-                echo '<div class="article">';
+                echo '<article class="article">';
                 echo '<div class="sport_img">';
                 echo '<img src="' . UPLPATH . $row['slika'] . '" alt="Article Image">';
                 echo '</div>';  
@@ -52,22 +49,19 @@ define('UPLPATH', 'img/');
                 echo 'Objavljeno: '. $row['datum'];
                 echo '</p>';
                 echo '</div>';  
-                echo '</div>'; 
+                echo '</article>'; 
             }
-           
         ?>
     </section>
     <br>
     <h1 class="subtitle">Nekretnine</h1>
     <section>
-              
             <?php
                  $query2 = "SELECT * FROM clanak WHERE arhiva = 0 AND kategorija = 'nekretnine' limit 3";
                  $result2 = mysqli_query($dbc,$query2);
                  $i = 0;
                  while($row2 = mysqli_fetch_array($result2)){
-                 
-                    echo '<div class="article">';
+                    echo '<article class="article">';
                     echo '<div class="sport_img">';
                     echo '<img src="' . UPLPATH . $row2['slika'] . '" alt="Article Image">';
                     echo '</div>';  
@@ -80,7 +74,7 @@ define('UPLPATH', 'img/');
                     echo 'Objavljeno: '. $row2['datum'];
                     echo '</p>';
                     echo '</div>';  
-                    echo '</div>';  
+                    echo '</article>';  
                      
                  }
             ?>

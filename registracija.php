@@ -11,9 +11,7 @@
         <div class="titleDiv">
             <h1 class="titleTxt">L'OBS</h1>
         </div>
-        
         <nav>
-
             <a href="index.php" class="redirectLink">Home</a>
             <a href="politika.php" class="redirectLink">Politika</a>
             <a href="nekretnine.php" class="redirectLink">Nekretnine</a>
@@ -74,8 +72,6 @@
         </form>
 
 </main>
-
-
     <?php
         include 'connect.php';
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -86,7 +82,6 @@
             $hashed_password = password_hash($lozinka,CRYPT_BLOWFISH);
             $razina = 0;
             $registriraniKorisnik = "";
-    
             $sql = "SELECT korisnicko_ime FROM korisnik where korisnicko_ime = ?";
             $stmt = mysqli_stmt_init($dbc);
     
@@ -114,7 +109,6 @@
     
             }
         }
-        
     ?>
 </body>
 </html>

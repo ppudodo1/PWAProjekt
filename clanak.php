@@ -23,7 +23,6 @@
             <a href="nekretnine.php" class="redirectLink">Nekretnine</a>
             <a href="login.php" class="redirectLink">Administracija</a>
         </div>
-    
     </header>
     <hr>
    <?php
@@ -31,7 +30,6 @@
    define('UPLPATH', 'img/');
     if(isset($_GET["id"]))
         $id = $_GET["id"];
-        
         $query = "SELECT * from clanak WHERE id = $id";
         $result = mysqli_query($dbc,$query);
         while($row = mysqli_fetch_array($result)) {
@@ -39,7 +37,6 @@
                 echo '<p class="categorySubtitle"> Lobs > Politika</p>';
            }else if($row['kategorija']== "nekretnine"){
                 echo '<p class="categorySubtitle"> Lobs > Nekretnine</p>';
-
            }
             echo '<div class="clanakContainer">';
             echo '<h1 class="articleTitle">';
@@ -58,8 +55,7 @@
             echo $row['tekst'];
             echo '</p>';
             echo '</div>';
-          
-            }
+        }
    ?>
        <footer>Dominik Katavić: 0246108196</footer>
 

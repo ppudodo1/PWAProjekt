@@ -1,7 +1,6 @@
 *{
     margin: 0;
     padding: 0;
-
 }
 header{
   
@@ -20,7 +19,6 @@ body{
    display: flex;
    justify-content: center;
    align-items: center;
-
 }
 .titleTxt{
     font-size: 48px;
@@ -41,18 +39,14 @@ nav{
     text-decoration: none;
     font-size: 22px;
 }
-
 .article{
- 
-    
     width: 15%;
-  height: 300px;
-  border: 1px solid rgb(225, 225, 225);
-
+    height: 300px;
+    border: 1px solid rgb(225, 225, 225);
     display: flex;
     flex-direction: column;
+    align-items: center;
     transition: 0.2s all linear;
-   
 }
 .article:hover{
     transform: translateY(-10px);
@@ -60,14 +54,15 @@ nav{
 }
 .media_body{
     background-color: white;
-    
-   text-align: center;
-   width: 100%;
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
-   gap: 1rem;
+    position: relative;
+    top: -10px;
+    text-align: center;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
 }
 .sport_img{
     width: 100%;
@@ -86,10 +81,8 @@ section{
     align-items: center;
     margin-top: 20px;
     gap: 2rem;
-    
     flex-wrap: wrap;
 }
-
 .clanakContainer{
     width: 80%;
     margin: 0 auto;
@@ -112,7 +105,6 @@ section{
 }
 .unosContainer{
     margin: 0 auto;
-    
     width: 100%;
     height: 100%;
 }
@@ -124,7 +116,6 @@ section{
     margin-left: 2%;
 }
 .categorySubtitle{
-   
     width: 80%;
     margin: 0 auto;
     color: rgb(182, 182, 182);
@@ -140,13 +131,11 @@ section{
     font-size: 20px;
     color: black;
     text-decoration: none;
-    
 }
 .datumIndex{
     color:rgb(182, 182, 182) ;
 }
 footer{
-   
     height:50px;
     background-color: #F1F1F1;
     color: #888992;
@@ -164,7 +153,6 @@ footer{
 }
 .form-wrapper{
     margin-top: 70px;
-
     width: 100%;
     height: 80%;
     display: flex;
@@ -204,7 +192,6 @@ footer{
 }
 .register-container{
     height: 100%;
-   
     display: flex;
     justify-content: center;
     margin-top: 70px;
@@ -222,7 +209,6 @@ footer{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-
 }
 .big-div{
     box-shadow: 0px 0px 10px rgb(195, 195, 195);

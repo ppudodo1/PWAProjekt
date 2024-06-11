@@ -12,14 +12,12 @@
         if(isset($_SESSION['$username']) && $_SESSION['$username'] != ""){
             header('Location: administracija.php');
             exit(); 
-            
         }
     ?>
     <header>
         <div class="titleDiv">
             <h1 class="titleTxt">L'OBS</h1>
         </div>
-        
         <nav>
             <a href="index.php" class="redirectLink">Home</a>
             <a href="politika.php" class="redirectLink">Politika</a>
@@ -34,7 +32,6 @@
         </div>
         <hr>
     </header>
- 
     <div class="form-wrapper">
         <form action="administracija.php" method="post">
             <input type="text" name="username" placeholder="username" class="login-input">
@@ -46,7 +43,6 @@
         <p>Nemate račun? Napravite ga ovdje</p>
         <a href="./registracija.php">Registracija</a>
     </div>
-    
     <footer>Dominik Katavić: 0246108196</footer>
 
 </body>

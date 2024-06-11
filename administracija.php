@@ -1,5 +1,4 @@
 <?php
-
 echo '<!DOCTYPE html>';
 echo '<html lang="en">';
 echo '<head>';
@@ -30,8 +29,6 @@ echo '    </header>';
 
 echo '</body>';
 echo '</html>';
-
-
     session_start();
     include 'connect.php';
     define('UPLPATH', 'img/');
@@ -39,24 +36,18 @@ echo '</html>';
     if(isset($_POST["prijava"])){
         $prijavaImeKorisnika = $_POST["username"];
         $prijavaLozinkaKorisnika = $_POST["password"];
-        
-       
-
         $sql = "SELECT korisnicko_ime, lozinka, razina FROM korisnik WHERE korisnicko_ime = ?";
         $stmt = mysqli_stmt_init($dbc);
         if(mysqli_stmt_prepare($stmt,$sql)){
             mysqli_stmt_bind_param($stmt, 's', $prijavaImeKorisnika);
             mysqli_stmt_execute($stmt);
             mysqli_stmt_store_result($stmt);
-
         }
         mysqli_stmt_bind_result($stmt, $imeKorisnika, $lozinkaKorisnika,$levelKorisnika);
         mysqli_stmt_fetch($stmt);
-
         if (password_verify($_POST['password'], $lozinkaKorisnika) &&
             mysqli_stmt_num_rows($stmt) > 0) {
             $uspjesnaPrijava = true;
-            
             if($levelKorisnika == 1) {
             $admin = true;
             }
@@ -68,8 +59,7 @@ echo '</html>';
                 
             } else {
                 $uspjesnaPrijava = false;
-            }
-                
+            }   
     } 
     if(isset($_POST["logout"])){
         session_unset();
@@ -138,7 +128,6 @@ echo '</html>';
                 </form>';
             echo '</div>';
         }
-        
         echo '<form method="post">';
         echo '<button type="submit" name="logout" class ="button-input second">Log out</button>';
         echo '</form>';
@@ -166,20 +155,15 @@ echo '</html>';
                     slika='$picture', kategorija='$category', arhiva='$archive' WHERE id=$id ";
                     $result = mysqli_query($dbc, $query);
                 }
-                
-
-
-
     }else if(isset($_SESSION['$username']) && $_SESSION['$level']==0){
         echo '<p>Bok ' . $_SESSION['$username'] . '! Uspješno ste prijavljeni, ali niste administrator.</p>';
+        echo '<form method="post">';
+        echo '<button type="submit" name="logout" class ="button-input second">Log out</button>';
+        echo '</form>';
     }else if($uspjesnaPrijava==false){
         echo "Kriva lozinka ili korisnik ne postoji u bazi";
         echo "<br>";
         echo "<a href = 'registracija.php'>Registracija</a>";
     }
-    
     echo ' <footer>Dominik Katavić: 0246108196</footer>';
-
-  
-    
 ?>

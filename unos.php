@@ -59,7 +59,7 @@
             <label for="kategorija">Kategorija vijesti</label>
             <br>
             <p id="porukaKategorija"></p>
-            <select name="kategorija" id="" class="form-field-textual" value="'.$row['kategorija'].'">
+            <select name="kategorija" id="kategorija" class="form-field-textual" value="'.$row['kategorija'].'">
                 <option value="politika">Politika</option>
                 <option value="nekretnine">Nekretnine</option>
             </select>
@@ -144,8 +144,6 @@
                 poljeSlika.style.border = "1px solid green";
                 document.getElementById("porukaKategorija").innerHTML = "";
             }
-       
-
             if (!slanjeForme) {
                 event.preventDefault();
             }
@@ -161,41 +159,31 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit']) && isset($_FILES['slika'])) {
     include 'connect.php';
-
     $picture = $_FILES['slika']['name'];
     $title = $_POST['naslov'];
     $about = $_POST['kratak'];
     $content = $_POST['sadrzaj'];
     $category = $_POST['kategorija'];
     $date = date('Y-m-d'); 
-
     $arhiva = isset($_POST['arhiva']) ? 1 : 0;
-
     $target_dir = 'img/' . $picture;
     move_uploaded_file($_FILES['slika']['tmp_name'], $target_dir);
-
-
     $query = "INSERT INTO clanak (datum, naslov, sazetak, tekst, slika, kategorija, arhiva) VALUES (?, ?, ?, ?, ?, ?, ?)";
-    $stmt = mysqli_prepare($dbc, $query);
-
-    mysqli_stmt_bind_param($stmt, 'ssssssi', $date, $title, $about, $content, $picture, $category, $arhiva);
-
-
-    mysqli_stmt_execute($stmt);
-
- 
-    if (mysqli_stmt_affected_rows($stmt) === 1) {
-        echo "Data inserted successfully.";
+    $stmt = mysqli_stmt_init($dbc);
+    if (mysqli_stmt_prepare($stmt, $query)) {
+        mysqli_stmt_bind_param($stmt, 'ssssssi', $date, $title, $about, $content, $picture, $category, $arhiva);
+        mysqli_stmt_execute($stmt);
+        if (mysqli_stmt_affected_rows($stmt) === 1) {
+            echo "Data inserted successfully.";
+        } else {
+            echo "Error inserting data.";
+        }
+        mysqli_stmt_close($stmt);
     } else {
-        echo "Error inserting data.";
+        echo "Error preparing the statement.";
     }
-
-
-    mysqli_stmt_close($stmt);
     mysqli_close($dbc);
 }
 ?>
-
-    ?>
 </body>
 </html>
